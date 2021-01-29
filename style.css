@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    box-sizing: border-box;
 }
 
 .score {
@@ -7,4 +8,40 @@ body {
     color: white;
     margin: 15px;
     user-select: none;
+}
+
+.modal-container {
+    display: grid;
+    position: fixed;
+    background-color: #fff;
+    height: 30%;
+    width: 30%;
+    justify-content: center;
+    border-radius: 15px;
+    text-align: center;
+    top: 35%;
+    right: 35%;
+    bottom: 35%;
+    left: 35%;
+}
+
+.modal {
+    padding: 5%;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    color: darkgray;
+}
+
+button {
+    background-color: rgb(47, 127, 231);
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+    border: 0;
+    font-size: 1rem;
 }

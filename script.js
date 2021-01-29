@@ -5,6 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const scoreElement = document.querySelector('#score-number')
+const startButton = document.querySelector('#start-button')
 
 class Player {
 	constructor(x, y, radius, color) {
