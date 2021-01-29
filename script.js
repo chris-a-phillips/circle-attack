@@ -96,21 +96,37 @@ function spawnEnemies() {
     }, 1000)
 }
 
+// GAME OVER FRAME
+let animationId
+// GAME RUN FUNCTION
 function animate() {
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
     context.clearRect(0, 0, canvas.width, canvas.height)
     player.draw()
 	projectiles.forEach((projectile) => {
 		projectile.update();
     });
+
+    // COLLISION DETECTION FOR PLAYER
 	enemies.forEach((enemy) => {
         enemy.update();
-        // COLLISION DETECTION
+        
+        const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y)
+
+        if (distance - enemy.radius - player.radius < 1) {
+            cancelAnimationFrame(animationId)
+        }
+
+        // COLLISION DETECTION FOR PROJECTILES
         projectiles.forEach(projectile => {
             const distance = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y)
+
             if (distance - enemy.radius - projectile.radius < 1) {
-                enemies.splice(enemies.indexOf(enemy),1)
-                projectiles.splice(projectiles.indexOf(projectile),1)
+                // GETS RID OF FLASH WHEN ENEMIES ARE SPLICED
+                setTimeout(() => {
+                    enemies.splice(enemies.indexOf(enemy),1)
+                    projectiles.splice(projectiles.indexOf(projectile),1)
+                }, 0);
             }
         })
     });
