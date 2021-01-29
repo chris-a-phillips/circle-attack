@@ -93,7 +93,6 @@ function spawnEnemies() {
         };
 
         enemies.push(new Enemy(x, y, radius, color, velocity))
-        console.log(radius)
     }, 1000)
 }
 
@@ -105,7 +104,15 @@ function animate() {
 		projectile.update();
     });
 	enemies.forEach((enemy) => {
-		enemy.update();
+        enemy.update();
+        // COLLISION DETECTION
+        projectiles.forEach(projectile => {
+            const distance = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y)
+            if (distance - enemy.radius - projectile.radius < 1) {
+                enemies.splice(enemies.indexOf(enemy),1)
+                projectiles.splice(projectiles.indexOf(projectile),1)
+            }
+        })
     });
 }
 
