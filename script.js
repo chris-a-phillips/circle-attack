@@ -35,18 +35,46 @@ class Projectile {
 		context.fillStyle = this.color;
 		context.fill();
 	}
-
+    
 	update() {
-		this.draw();
+        this.draw();
 		this.x = this.x + this.velocity.x;
 		this.y = this.y + this.velocity.y;
 	}
 }
 
 class Enemy extends Projectile {
-	constructor(x, y, radius, color, velocity) {
-		super(x, y, radius, color, velocity);
+    constructor(x, y, radius, color, velocity) {
+        super(x, y, radius, color, velocity);
 	}
+}
+
+const friction = 0.98
+class Particle extends Projectile {
+    constructor(x, y, radius, color, velocity) {
+        super(x, y, radius, color, velocity);
+        this.alpha = 1
+	}
+    
+    // PARTICLE EFFECT TO FADE AWAY PARTICLES
+    draw() {
+        context.save()
+        context.globalAlpha = this.alpha
+        context.beginPath();
+        context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        context.fillStyle = this.color;
+        context.fill();
+        context.restore()
+    }
+    
+    update() {
+        this.draw();
+        this.velocity.x *= friction
+        this.velocity.y *= friction
+        this.x = this.x + this.velocity.x;
+        this.y = this.y + this.velocity.y;
+        this.alpha -= 0.01
+    }
 }
 
 const x = canvas.width / 2;
@@ -55,6 +83,7 @@ const y = canvas.height / 2;
 const player = new Player(x, y, 10, 'white');
 const projectiles = [];
 const enemies = [];
+const particles = [];
 
 function spawnEnemies() {
 	setInterval(() => {
@@ -88,7 +117,16 @@ function animate() {
     animationId = requestAnimationFrame(animate);
     context.fillStyle = 'rgba(0, 0, 0, 0.1)'
 	context.fillRect(0, 0, canvas.width, canvas.height);
-	player.draw();
+    player.draw();
+    particles.forEach(particle => {
+        if (particle.alpha <= 0) {
+            particles.splice(particles.indexOf(particle), 1)
+        } else {
+            particle.update()
+        }
+    })
+
+
 	projectiles.forEach((projectile) => {
 		projectile.update();
 
@@ -115,19 +153,39 @@ function animate() {
 			cancelAnimationFrame(animationId);
 		}
 
-		// COLLISION DETECTION FOR PROJECTILES
+		// COLLISION DETECTION FOR PROJECTILES HITTING ENEMY
 		projectiles.forEach((projectile) => {
 			const distance = Math.hypot(
 				projectile.x - enemy.x,
 				projectile.y - enemy.y
 			);
 
+            // SET TIMEOUTS GET RID OF FLASH WHEN ENEMIES ARE SPLICED
+            // SHRINKS BIG ENEMY WHEN HIT ELSE SPLICES IT IF ITS ALREADY SMALL
 			if (distance - enemy.radius - projectile.radius < 1) {
-				// GETS RID OF FLASH WHEN ENEMIES ARE SPLICED
-				setTimeout(() => {
-					enemies.splice(enemies.indexOf(enemy), 1);
-					projectiles.splice(projectiles.indexOf(projectile), 1);
-				}, 0);
+                // PARTICLE EFFECT
+                for (let i = 0; i < enemy.radius * 2; i++) {
+                    particles.push(new Particle(projectile.x, projectile.y,
+                        Math.random() * 2, 
+                        enemy.color, {
+                        x: (Math.random() - 0.5) * (Math.random() * 7),
+                        y: (Math.random() - 0.5) * (Math.random() * 7),
+                    }))
+                }
+                if (enemy.radius - 10 > 5) {
+                    // SHRINK EFFECT
+                    gsap.to(enemy, {
+                        radius: enemy.radius - 10
+                    })
+                    setTimeout(() => {
+                        projectiles.splice(projectiles.indexOf(projectile), 1);
+                    }, 0);
+                } else {
+                    setTimeout(() => {
+                        enemies.splice(enemies.indexOf(enemy), 1);
+                        projectiles.splice(projectiles.indexOf(projectile), 1);
+                    }, 0);
+                }
 			}
 		});
 	});
