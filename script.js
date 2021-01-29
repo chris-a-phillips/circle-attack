@@ -1,11 +1,13 @@
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
+const scoreElement = document.querySelector('#score-number')
+const endScore = document.querySelector('#end-score-number')
+const startButton = document.querySelector('#start-button')
+const modal = document.querySelector('.modal-container')
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const scoreElement = document.querySelector('#score-number')
-const startButton = document.querySelector('#start-button')
 
 class Player {
 	constructor(x, y, radius, color) {
@@ -83,10 +85,21 @@ class Particle extends Projectile {
 const x = canvas.width / 2;
 const y = canvas.height / 2;
 
-const player = new Player(x, y, 10, 'white');
-const projectiles = [];
-const enemies = [];
-const particles = [];
+let player = new Player(x, y, 10, 'white');
+let projectiles = [];
+let enemies = [];
+let particles = [];
+
+// NEW GAME
+function init() {
+    player = new Player(x, y, 10, 'white');
+    projectiles = [];
+    enemies = [];
+    particles = [];
+    score = 0;
+    scoreElement.innerHTML = score;
+    endScore.innerHTML = score;
+}
 
 function spawnEnemies() {
 	setInterval(() => {
@@ -154,8 +167,11 @@ function animate() {
 
 		const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y);
 
+        // GAME OVER
 		if (distance - enemy.radius - player.radius < 1) {
-			cancelAnimationFrame(animationId);
+            cancelAnimationFrame(animationId);
+            modal.style.display = 'grid'
+            endScore.innerHTML = score
 		}
 
 		// COLLISION DETECTION FOR PROJECTILES HITTING ENEMY
@@ -217,5 +233,9 @@ window.addEventListener('click', (event) => {
 	);
 });
 
-animate();
-spawnEnemies();
+startButton.addEventListener('click', () => {
+    init()
+    animate();
+    spawnEnemies();
+    modal.style.display = 'none'
+})
