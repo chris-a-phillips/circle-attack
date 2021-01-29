@@ -4,6 +4,8 @@ const context = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+const scoreElement = document.querySelector('#score-number')
+
 class Player {
 	constructor(x, y, radius, color) {
 		this.x = x;
@@ -112,6 +114,8 @@ function spawnEnemies() {
 
 // GAME OVER FRAME
 let animationId;
+// INITIAL SCORE
+let score = 0
 // GAME RUN FUNCTION
 function animate() {
     animationId = requestAnimationFrame(animate);
@@ -173,14 +177,20 @@ function animate() {
                     }))
                 }
                 if (enemy.radius - 10 > 5) {
-                    // SHRINK EFFECT
-                    gsap.to(enemy, {
-                        radius: enemy.radius - 10
-                    })
-                    setTimeout(() => {
+					// SCORE LOGIC
+					score += 100;
+					scoreElement.innerHTML = score;
+					// SHRINK EFFECT
+					gsap.to(enemy, {
+                        radius: enemy.radius - 10,
+                    });
+					setTimeout(() => {
                         projectiles.splice(projectiles.indexOf(projectile), 1);
-                    }, 0);
-                } else {
+					}, 0);
+				} else {
+                    // DESTROY ENEMY
+                    score += 250
+                    scoreElement.innerHTML = score;
                     setTimeout(() => {
                         enemies.splice(enemies.indexOf(enemy), 1);
                         projectiles.splice(projectiles.indexOf(projectile), 1);
@@ -192,7 +202,6 @@ function animate() {
 }
 
 window.addEventListener('click', (event) => {
-    console.log(projectiles)
 	const angle = Math.atan2(
 		event.clientY - canvas.height / 2,
 		event.clientX - canvas.width / 2
