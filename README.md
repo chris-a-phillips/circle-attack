@@ -1,19 +1,3 @@
-# circle-attack
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -21,16 +5,16 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Circle Attack</h3>
+
+**![](https://lh3.googleusercontent.com/hjjqBxWaZTln6RweH2JKxtqhtFdSmo_6X3J0OFev8yYKkYHEolsFtVjlM8QHhwYrSx8FfX0uM1vXJkR9_24cWZT4y5Hc52qLJJn66WEeQj5sAIOQOrcumH72HIc06PoHWmvFNRzwpqo)**
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Protect yourself from the circle invasion.
     <br />
     <a href="{link_to_documentation}"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="{link_to_demo}">View Demo</a>
-    ·
     <a href="{link_to_issues">Report Bug</a>
     ·
     <a href="{link_to_issues}">Request Feature</a>
@@ -59,7 +43,6 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -91,42 +74,29 @@ This section should list any major frameworks that you built your project using.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Getting started is easy. This was made with vanilla javascript and canvas. All you have to do is clone this to your machine and you're good to go.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install
-  ```
+None
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/chris-a-phillips/circle-attack.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js` or `.env` file
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
+2. Enjoy
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+**![](https://lh5.googleusercontent.com/wEi_mRZftmQbHt8B44ag48FoaUCPfojy_20kyh4xEx9NWeooaEnJBccbWEbhkgWVPlK6iI1aqa8O5cIudLSa82leXebkZ7bTZWzWwejLwSXFuyMBLkZg6vgOmvTSpJm0v4a9aCPoSX8)**
+Game Screenshot
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
-
+**![](https://lh5.googleusercontent.com/1lHJpEMj2YGY0x0NmlGAYWsE5EAuqODzqI1mxiQNPaJRs8gQrCfSiM1oZe0CcugoisRLTRzyTyyiTgMGhqUtpSZYS50iOjQAcPPcnFadegYWbG5BHykmJn27Njrv5CsAJX4_6aohUwM)**
+Game Over Screen
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -147,14 +117,6 @@ Explanation of about how to contribute and appreciations for future contribution
 5. Open a Pull Request
 
 
-
-<!-- LICENSE -->
-## License
-
-Any licenses will go here. See `LICENSE` for more information.
-
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -167,27 +129,3 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Othneil Drew](https://github.com/othneildrew/)
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
