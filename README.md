@@ -1,8 +1,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="{logo_link}">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Circle Attack</h3>
@@ -11,13 +9,11 @@
 
   <p align="center">
     Protect yourself from the circle invasion.
+     <br />
     <br />
-    <a href="{link_to_documentation}"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="{link_to_issues">Report Bug</a>
+    <a href="{https://github.com/chris-a-phillips/circle-attack/issues">Report Bug</a>
     ·
-    <a href="{link_to_issues}">Request Feature</a>
+    <a href="{https://github.com/chris-a-phillips/circle-attack/issues}">Request Feature</a>
   </p>
 </p>
 
@@ -53,23 +49,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This is a vanilla Javascript game created with html canvas and GSAP. Your goal is to survive as long as you can and get as many points as possible in the process. Bigger circles are worth more, but don't let the little ones sneak up on you.
 
-Information about the application.
+##### Upcoming Features
 
-Main purpose:
-* Purpose 1
-* Purpose 2
-* Purpose 3
-
-Summary
+ - Levels
+ - Sound effects
+ - Health system
+ - More animations
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [React](https://reactjs.org/)
-* [Styled Components](https://styled-components.com/)
-
+* HTML
+* CSS
+* Javascript
+* GSAP
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -101,7 +95,7 @@ Game Over Screen
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https:{link_to_issues}) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/chris-a-phillips/circle-attack/issues) for a list of proposed features (and known issues).
 
 
 
@@ -120,12 +114,13 @@ Explanation of about how to contribute and appreciations for future contribution
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter](https://twitter.com/your_username) - email@example.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Chris Phillips - [Chris Phillips LinkedIn](https://www.linkedin.com/in/chris-a-phillips/) - phillipsachris@gmail.com
+
+Project Link: [https://github.com/chris-a-phillips/circle-attack](https://github.com/chris-a-phillips/circle-attack)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Youtube Tutorial](https://www.youtube.com/watch?v=eI9idPTT0c4)
